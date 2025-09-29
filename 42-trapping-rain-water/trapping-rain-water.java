@@ -1,16 +1,17 @@
 class Solution {
     public int trap(int[] height) {
-    int n=height.length;
-    int l=0,r=n-1,ans=0,left=-1,right=-1;
+    int l=0,r=height.length-1;
+    int ans=0,left=-1,right=-1;
     while(l<r){
-        left=Math.max(height[l],left);
-        right=Math.max(height[r],right);
+        left=Math.max(left,height[l]);
+        right=Math.max(right,height[r]);
+
         if(left<right){
-            ans+=left-height[l];
+            ans+=(left-height[l]);
             l++;
         }
         else{
-            ans+=right-height[r];
+            ans+=(right-height[r]);
             r--;
         }
     }
